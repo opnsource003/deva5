@@ -17,7 +17,7 @@
 $(call inherit-product, device/generic/mini-emulator-armv7-a-neon/mini_emulator_common.mk)
 
 PRODUCT_NAME := aosp_a5
-PRODUCT_DEVICE := a5
+PRODUCT_DEVICE := x86
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Desire 816
 
