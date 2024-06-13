@@ -1,31 +1,54 @@
-# inherit from the proprietary version
-# -include vendor/htc/a5/BoardConfigVendor.mk
+#
+# Product-specific compile-time definitions.
+#
 
-TARGET_BOARD_PLATFORM := msm8226
-
-# Architecture
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_ARCH_VARIANT_CPU := cortex-a9
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_SMP := true
-TARGET_CPU_VARIANT := krait
-TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
-
+# The generic product target doesn't have any hardware-specific pieces.
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := a5
+TARGET_NO_KERNEL := true
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3
-BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02008000 --dt device/htc/a5/dtb --tags_offset 0x01e00000
+TARGET_ARCH := x86
+TARGET_CPU_ABI := x86
+TARGET_CPU_SMP := true
 
-TARGET_PREBUILT_KERNEL := device/htc/a5/kernel
+SMALLER_FONT_FOOTPRINT := true
+MINIMAL_FONT_FOOTPRINT := true
+# Some framework code requires this to enable BT
+BOARD_HAVE_BLUETOOTH := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/generic/common/bluetooth
 
-BOARD_BOOTIMAGE_PARTITION_SIZE := 0x01000000
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x01800000
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0xa8000000
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x58000000
-BOARD_FLASH_BLOCK_SIZE := 512
+# Build OpenGLES emulation libraries
+BUILD_EMULATOR_OPENGL := true
+BUILD_EMULATOR_OPENGL_DRIVER := true
+USE_OPENGL_RENDERER := true
+
+BOARD_USE_LEGACY_UI := true
+
+# share the same one across all mini-emulators
+BOARD_EGL_CFG := device/generic/goldfish/opengl/system/egl/egl.cfg
+
+# PDK does not use ext4 image, but it is added here to prevent build break.
 TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 576716800
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 419430400
+BOARD_CACHEIMAGE_PARTITION_SIZE := 69206016
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_FLASH_BLOCK_SIZE := 512
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
+
+BOARD_SEPOLICY_DIRS += build/target/board/generic/sepolicy
+BOARD_SEPOLICY_DIRS += build/target/board/generic_x86/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+        bootanim.te \
+        device.te \
+        domain.te \
+        file.te \
+        file_contexts \
+        healthd.te \
+        installd.te \
+        qemud.te \
+        rild.te \
+        shell.te \
+        surfaceflinger.te \
+        system_server.te \
+        zygote.te

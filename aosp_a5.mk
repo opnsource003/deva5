@@ -12,15 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# $(call inherit-product, device/htc/a5/mini_common.mk)
-
-$(call inherit-product, device/generic/mini-emulator-armv7-a-neon/mini_emulator_common.mk)
+$(call inherit-product, device/generic/armv7-a-neon/mini_common.mk)
 
 PRODUCT_NAME := aosp_a5
-PRODUCT_DEVICE := a5
-PRODUCT_BRAND := htc
-PRODUCT_MODEL := Desire 816
+PRODUCT_DEVICE := x86
+PRODUCT_BRAND := Android
+PRODUCT_MODEL := Mini for x86
 
 # default is nosdcard, S/W button enabled in resource
-# DEVICE_PACKAGE_OVERLAYS += device/htc/a5/overlay
-# PRODUCT_CHARACTERISTICS := nosdcard
+DEVICE_PACKAGE_OVERLAYS := device/generic/x86/overlay
+PRODUCT_CHARACTERISTICS := nosdcard
