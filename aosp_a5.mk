@@ -22,5 +22,5 @@ PRODUCT_BRAND := Android
 PRODUCT_MODEL := Desire 816
 
 # default is nosdcard, S/W button enabled in resource
-# DEVICE_PACKAGE_OVERLAYS += device/htc/a5/overlay
-# PRODUCT_CHARACTERISTICS := nosdcard
+DEVICE_PACKAGE_OVERLAYS += device/htc/a5/overlay
+PRODUCT_CHARACTERISTICS := nosdcard
