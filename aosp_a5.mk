@@ -15,6 +15,7 @@
 # $(call inherit-product, device/htc/a5/mini_common.mk)
 
 $(call inherit-product, device/generic/armv7-a-neon/mini_common.mk)
+$(call inherit-product, device/htc/a5/device_a5.mk)
 
 PRODUCT_NAME := aosp_a5
 PRODUCT_DEVICE := a5

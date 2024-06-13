@@ -4,8 +4,6 @@
 
 # DEVICE_PACKAGE_OVERLAYS += device/htc/a5/overlay
 
-$(call inherit-product, device/generic/armv7-a-neon/mini_common.mk)
-
 LOCAL_PATH := device/htc/a5
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -16,4 +14,3 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
-$(call inherit-product, build/target/product/embedded.mk)
