@@ -4,6 +4,8 @@
 
 # DEVICE_PACKAGE_OVERLAYS += device/htc/a5/overlay
 
+$(call inherit-product, device/generic/mini-emulator-armv7-a-neon/mini_emulator_common.mk)
+
 LOCAL_PATH := device/htc/a5
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
