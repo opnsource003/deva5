@@ -16,4 +16,4 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/device_a5.mk \
-    $(LOCAL_DIR)/aosp_a5.mk
+    $(LOCAL_DIR)/omni_a5.mk
