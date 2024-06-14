@@ -14,3 +14,5 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
+
+TARGET_NO_RECOVERY := true
